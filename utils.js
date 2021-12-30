@@ -12,7 +12,20 @@ const calculateWidth = (total=0, totalElements) => {
     return width + "%";
 }
 
+/**
+ * Sum of an array of numbers
+ * @param {array} array
+ * @returns {number} sum of the array
+ */
+const sumOfArray = (array) => {
+    if (Array.isArray(array)) {
+        return array.reduce((a, b) => a + b, 0);
+    }
+    return 0;
+}
+
 export default {
     combineStyles,
     calculateWidth,
+    sumOfArray,
 }
