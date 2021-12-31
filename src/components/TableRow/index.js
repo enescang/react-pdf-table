@@ -6,13 +6,18 @@ import PropTypes from 'prop-types';
 import TableCell from '../TableCell';
 
 const TableRow = (props) => {
-    const { width, disableMargin } = props;
+    const { width, height, disableMargin } = props;
     let style = { width: width + "%" };
 
     if(width){
         style.width = width + "%";
     }else{
         style.width = "auto";
+    }
+    if(height){
+        style.height = height + "px";
+    }else {
+        style.height = "auto";
     }
 
     if(disableMargin){
@@ -44,6 +49,13 @@ TableRow.propTypes = {
      * @default 0
      */
     width: PropTypes.number,
+
+    /**
+     *  The height of the table row. The value is in pixels.
+     * @default 0 
+     */
+    height: PropTypes.number,
+    
     /**
      * Disable margin for the row
      * @default false
@@ -53,6 +65,7 @@ TableRow.propTypes = {
 
 TableRow.defaultProps = {
     width: 0,
+    height: 0,
     disableMargin: false,
 }
 
