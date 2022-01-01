@@ -5,8 +5,8 @@ import styles from '../../styles';
 import Utils from '../../utils';
 
 const TableCell = (props) => {
-    const { text, align, vertical, __totalElements, __elementsWidthArray, width } = props;
-
+    const { text, horizontal, vertical, width, backgroundColor } = props;
+    const { __totalElements, __elementsWidthArray } = props;
     const totalWidth = Utils.sumOfArray(__elementsWidthArray);
     const totalElementsThatHaveWidth = __elementsWidthArray.filter(width => width > 0).length;
 
@@ -22,6 +22,9 @@ const TableCell = (props) => {
     }
     if(vertical === 'center' || vertical === 'start' || vertical === 'end'){
         style.alignItems = vertical;
+    }
+    if(backgroundColor){
+        style.backgroundColor = backgroundColor;
     }
     return (
         <>
@@ -64,6 +67,14 @@ TableCell.propTypes = {
      * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container
      */
     vertical: PropTypes.oneOf(['start', 'center', 'end']),
+
+    /**
+     * Background color for this cell.
+     * It can be a valid CSS color value.
+     * @default null
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+     */
+    backgroundColor: PropTypes.string,
 }
 
 TableCell.defaultProps = {
