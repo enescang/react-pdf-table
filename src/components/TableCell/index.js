@@ -17,8 +17,8 @@ const TableCell = (props) => {
     } else{
         style.width = Utils.calculateWidth(totalWidth, __totalElements-totalElementsThatHaveWidth);
     }
-    if (align === 'center' || align === 'right' || align === 'left') {
-        style.textAlign = align;
+    if (horizontal === 'center' || horizontal === 'right' || horizontal === 'left') {
+        style.justifyContent = horizontal;
     }
     if(vertical === 'center' || vertical === 'start' || vertical === 'end'){
         style.alignItems = vertical;
@@ -46,9 +46,14 @@ TableCell.propTypes = {
     text: PropTypes.string.isRequired,
 
     /**
-     * The style to apply to the header cell
+     * The style to apply to the header cell. It can be one of the following:
+     * - 'left'
+     * - 'center'
+     * - 'right'
+     * @default 'left'
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
      */
-    align: PropTypes.oneOf(['left', 'right', 'center']),
+    horizontal: PropTypes.oneOf(['left', 'right', 'center']),
 
     /**
      * The vertical alignment for the header cell. It can be one of the following:
