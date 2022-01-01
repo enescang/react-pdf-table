@@ -5,7 +5,7 @@ import styles from '../../styles';
 import Utils from '../../utils';
 
 const TableCell = (props) => {
-    const { text, align, __totalElements, __elementsWidthArray, width } = props;
+    const { text, align, vertical, __totalElements, __elementsWidthArray, width } = props;
 
     const totalWidth = Utils.sumOfArray(__elementsWidthArray);
     const totalElementsThatHaveWidth = __elementsWidthArray.filter(width => width > 0).length;
@@ -19,6 +19,9 @@ const TableCell = (props) => {
     }
     if (align === 'center' || align === 'right' || align === 'left') {
         style.textAlign = align;
+    }
+    if(vertical === 'center' || vertical === 'start' || vertical === 'end'){
+        style.alignItems = vertical;
     }
     return (
         <>
@@ -46,6 +49,16 @@ TableCell.propTypes = {
      * The style to apply to the header cell
      */
     align: PropTypes.oneOf(['left', 'right', 'center']),
+
+    /**
+     * The vertical alignment for the header cell. It can be one of the following:
+     * - 'start'
+     * - 'center'
+     * - 'end'
+     * @default 'start'
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container
+     */
+    vertical: PropTypes.oneOf(['start', 'center', 'end']),
 }
 
 TableCell.defaultProps = {

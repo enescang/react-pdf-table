@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         marginRight:10,
     },
     headerCol: {
+        display: 'flex',
         borderWidth: 1,
         borderLeftWidth: 0,
         borderTopWidth: 1,
@@ -21,7 +22,6 @@ const styles = StyleSheet.create({
         borderColor: '#bfbfbf',
     },
     headerCell: {
-        margin: "auto",
         marginHorizontal: 5,
         fontSize: 16,
     },
