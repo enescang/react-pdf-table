@@ -1,6 +1,6 @@
 {
   "name": "react-pdf-table",
-  "version": "1.0.0-alfa.2",
+  "version": "1.0.0-alfa.3",
   "description": "Simple React table generator for @react-pdf",
   "main": "dist/index.js",
   "scripts": {
